@@ -9,7 +9,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import mongoose from 'mongoose';
 import * as bcrypt from 'bcrypt';
 import { Admin } from 'src/models/admins.model';
-import { CreateAdmin } from './admin-dto';
+import { CreateAdmin, login } from './admin-dto';
 const BCRYPT_SALT = process.env.BCRYPT_SALT || 10;
 @Injectable()
 export class AdminService {
@@ -52,10 +52,10 @@ export class AdminService {
    * login admin
    * @returns admin
    */
-  async login(body): Promise<{ admin: Admin; token: string }> {
-    // get all user from the db
+  async login(body: login): Promise<{ admin: Admin; token: string }> {
     try {
-      const admin = await this.adminModel.findOne({ body.email });
+      const admin = await this.adminModel.findOne({ email: body.email });
+      // if the mail does not exist in any account
       if (!admin) {
         throw new NotFoundException('Mail does not exist', {
           cause: new Error(),
@@ -63,13 +63,15 @@ export class AdminService {
         });
       }
       const isMatched = bcrypt.compare(admin.password, body.password);
+      // check if the password is not correct
       if (!isMatched) {
         throw new UnauthorizedException('Invalid credentials');
       }
+      // deleting password from the object
       delete admin.password;
       const payload = { admin };
+      // creating token
       const token = await this.jwtService.signAsync(payload);
-
       return { admin, token };
     } catch (err) {
       console.log('----------->', err);

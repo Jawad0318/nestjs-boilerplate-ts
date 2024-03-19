@@ -10,13 +10,10 @@ import { MongooseModule } from '@nestjs/mongoose';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: ['.env.development.local', '.env.development'],
+      envFilePath: ['.env'],
       isGlobal: true,
     }),
-    MongooseModule.forRoot(
-      process.env.MONGODB_URI ||
-        'mongodb+srv://falcon_consulting:SdhAGgILmNvLvEpo@dev.mhkzr1l.mongodb.net/NestBoilerPlate?retryWrites=true&w=majority',
-    ),
+    MongooseModule.forRoot(process.env.MONGODB_URI),
     AuthModule,
     UserModule,
     AdminModule,
