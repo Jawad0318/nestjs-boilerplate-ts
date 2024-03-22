@@ -19,6 +19,18 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "prepare": "husky install"
   },
+   "husky": {
+     "hooks": {
+     "pre-commit": "lint-staged"
+     }
+   },
+   "lint-staged": {
+     "*.js": [
+     "eslint — fix",
+     "prettier — write",
+     "git add"
+   ]
+   },
   "repository": {
     "type": "git",
     "url": "git@github.com:Jawad0318/nestjs-boilerplate-ts.git"
