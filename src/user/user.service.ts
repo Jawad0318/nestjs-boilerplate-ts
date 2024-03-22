@@ -19,7 +19,10 @@ export class UserService {
    * @body
    * @returns  user && token
    */
-  async create(body: CreateUser): Promise<{ user: User; token: string }> {
+  async create(
+    body: CreateUser,
+    photo: string,
+  ): Promise<{ user: User; token: string }> {
     try {
       const existinguser = await this.userModel.findOne({ email: body.email });
       // check user exist
@@ -29,6 +32,7 @@ export class UserService {
           description: 'the given email is already in use',
         });
       }
+      body.photo = photo;
       // encrypting the password
       body.password = bcrypt.hashSync(body.password, BCRYPT_SALT);
       // creating user in db
@@ -80,13 +84,19 @@ export class UserService {
    * @param body
    * @returns
    */
-  async updateUser(userId: string, body: CreateUser): Promise<User> {
+  async updateUser(
+    userId: string,
+    body: CreateUser,
+    photoPath: string,
+  ): Promise<User> {
     // updating the user
     try {
       // if user want to update his passsword
+
       if (body.password) {
         body.password = bcrypt.hashSync(body.password, BCRYPT_SALT);
       }
+      body.photo = photoPath;
       const user = await this.userModel.findByIdAndUpdate(userId, body, {
         new: true,
       });

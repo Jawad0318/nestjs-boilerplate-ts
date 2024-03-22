@@ -4,6 +4,7 @@ import { UserController } from './user.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserSchema } from 'src/models/user.model';
 import { JwtModule } from '@nestjs/jwt';
+import { FileService } from 'src/file.service';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { JwtModule } from '@nestjs/jwt';
       signOptions: { expiresIn: '8h' },
     }),
   ],
-  providers: [UserService],
+  providers: [UserService, FileService],
   controllers: [UserController],
 })
 export class UserModule {}

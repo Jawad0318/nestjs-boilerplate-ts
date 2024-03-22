@@ -25,6 +25,7 @@ export class CreateUser {
   @IsString()
   @IsOptional()
   readonly country: string;
+  @IsOptional()
   photo: string;
   @IsString()
   @IsOptional()
