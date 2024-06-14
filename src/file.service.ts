@@ -1,3 +1,7 @@
+/**
+ *  handling the file storing
+ * @author jawad altaf
+ */
 import { BadRequestException, Injectable } from '@nestjs/common';
 import * as fs from 'fs';
 import * as path from 'path';

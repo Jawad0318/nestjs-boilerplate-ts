@@ -1,3 +1,7 @@
+/**
+ *  app modules handle the structure of the complete app
+ * @author jawad altaf
+ */
 import { Module } from '@nestjs/common';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';

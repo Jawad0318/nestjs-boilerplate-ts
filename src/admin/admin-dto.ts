@@ -1,11 +1,9 @@
-import {
-  IsString,
-  IsNotEmpty,
-  IsEmail,
-  IsNumber,
-  IsOptional,
-  IsBoolean,
-} from 'class-validator';
+/**
+ * Admin dto / body handler for request
+ * @author jawad altaf
+ */
+
+import { IsString, IsNotEmpty, IsEmail, IsOptional, IsBoolean } from 'class-validator';
 export class CreateAdmin {
   @IsString()
   @IsNotEmpty()

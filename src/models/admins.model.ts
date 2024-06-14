@@ -1,3 +1,7 @@
+/**
+ * admin schema
+ * @author jawad altaf
+ */
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 

@@ -1,10 +1,8 @@
-import {
-  IsString,
-  IsNotEmpty,
-  IsEmail,
-  IsNumber,
-  IsOptional,
-} from 'class-validator';
+/**
+ * user dto / body handler for request
+ * @author jawad altaf
+ */
+import { IsString, IsNotEmpty, IsEmail, IsNumber, IsOptional } from 'class-validator';
 export class CreateUser {
   @IsString()
   @IsNotEmpty()

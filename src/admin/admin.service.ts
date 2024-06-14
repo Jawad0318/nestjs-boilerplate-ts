@@ -1,3 +1,7 @@
+/**
+ *  Bussiness logic and functionality for admin controllers
+ * @author jawad altaf
+ */
 import {
   ConflictException,
   Injectable,

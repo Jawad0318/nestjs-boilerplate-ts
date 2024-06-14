@@ -1,8 +1,8 @@
-import {
-  Injectable,
-  NotFoundException,
-  UnauthorizedException,
-} from '@nestjs/common';
+/**
+ * proviers auth functionalities and bussiness logic
+ * @author jawad altaf
+ */
+import { Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { changePassword, login } from './auth-dto';
 import { User } from 'src/models/user.model';
 import { UserModule } from 'src/user/user.module';
@@ -68,9 +68,7 @@ export class AuthService {
       }
       // if new password is not equal to confirm password
       if (body.newPassword !== body.confirmPassword) {
-        throw new UnauthorizedException(
-          'Confirm password and new password are not same',
-        );
+        throw new UnauthorizedException('Confirm password and new password are not same');
       }
       // checking the old password
       const isMatched = bcrypt.compare(body.oldPassword, user.password);

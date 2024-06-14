@@ -1,3 +1,7 @@
+/**
+ * Decorator for organizing the user structure
+ * @author jawad altaf
+ */
 import { Module } from '@nestjs/common';
 import { UserService } from '../user/user.service';
 import { UserController } from './user.controller';

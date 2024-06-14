@@ -1,3 +1,7 @@
+/**
+ * Decorator for organizing the admin structure
+ * @author jawad altaf
+ */
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { MongooseModule } from '@nestjs/mongoose';

@@ -1,3 +1,7 @@
+/**
+ * auth decorator for req and body
+ * @author jawad altaf
+ */
 import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
 
 export class login {

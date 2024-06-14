@@ -1,3 +1,7 @@
+/**
+ * Nest-Ts boiler palte
+ * @author jawad altaf
+ */
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 

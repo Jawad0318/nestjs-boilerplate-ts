@@ -1,3 +1,7 @@
+/**
+ * handling the request and response for auth
+ * @author jawad altaf
+ */
 import { Body, Controller, Param, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { login } from 'src/admin/admin-dto';

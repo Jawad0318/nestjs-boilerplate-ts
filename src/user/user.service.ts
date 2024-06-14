@@ -1,3 +1,7 @@
+/**
+ *  Bussiness logic and functionality for users
+ * @author jawad altaf
+ */
 import { ConflictException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import * as bcrypt from 'bcrypt';
@@ -19,10 +23,7 @@ export class UserService {
    * @body
    * @returns  user && token
    */
-  async create(
-    body: CreateUser,
-    photo: string,
-  ): Promise<{ user: User; token: string }> {
+  async create(body: CreateUser, photo: string): Promise<{ user: User; token: string }> {
     try {
       const existinguser = await this.userModel.findOne({ email: body.email });
       // check user exist
@@ -84,11 +85,7 @@ export class UserService {
    * @param body
    * @returns
    */
-  async updateUser(
-    userId: string,
-    body: CreateUser,
-    photoPath: string,
-  ): Promise<User> {
+  async updateUser(userId: string, body: CreateUser, photoPath: string): Promise<User> {
     // updating the user
     try {
       // if user want to update his passsword

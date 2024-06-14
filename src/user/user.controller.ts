@@ -1,3 +1,7 @@
+/**
+ * user controller for the handling the request and respone
+ * @author jawad altaf
+ */
 import {
   Controller,
   Post,
